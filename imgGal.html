@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style type ="text/css">
+        .mainSize{
+            width:624px;
+            border:  2px solid white;
+        }  
+        .thumbSize {
+            height: 150px;
+            width: 150px;
+            border: 2px solid white;
+        }
+        body{
+            background-color: lightgray;            
+        }        
+        h1{            
+            font-size: 250%;
+            color:mediumslateblue;
+        }
+    </style>
+    <title>Image Gallery</title>
+</head>
+<body>
+    <h1>My 1st Javascript Photo Gallery</h1>
+    
+    
+    <img src = "cat.jpg" class = "mainSize" alt = "cat" id = "mainImg">
+        
+    <div id = "thumbs" onclick = "changeImg(event)">
+
+            
+    </div>
+    
+    
+    <script>
+
+        var pics = new Array();
+        pics[0] = 'cat.jpg';
+        pics[1] = 'dog.jpg';
+        pics[2] = 'panda.jpg';
+        pics[3] = 'piggy.jpg';        
+        
+        function createThumbPics(){
+            for(let i = 0; i<pics.length; i++){
+                document.write("<img src = " + pics[i] + "class = 'thumbSize'>");  
+                document.getElementById('thumbs').innerHTML += '<img src = "' + pics[i] + '"class = "thumbSize"  >';              
+            }
+            
+        }
+
+        function changeImg(event){
+            
+
+            var target = event.target;
+
+            if(target.tagName == "IMG"){
+                document.getElementById("mainImg").src = target.getAttribute("src");
+            }
+        }
+        
+    </script> 
+
+</body>
+</html>
