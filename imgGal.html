@@ -31,8 +31,7 @@
     <img src = "cat.jpg" class = "mainSize" alt = "cat" id = "mainImg">
         
     <div id = "thumbs" onclick = "changeImg(event)">
-
-            
+        
     </div>
     
     
@@ -44,13 +43,12 @@
         pics[2] = 'panda.jpg';
         pics[3] = 'piggy.jpg';        
         
-        function createThumbPics(){
             for(let i = 0; i<pics.length; i++){
-                document.write("<img src = " + pics[i] + "class = 'thumbSize'>");  
+                //document.write("<img src = " + pics[i] + "class = 'thumbSize'>");  
                 document.getElementById('thumbs').innerHTML += '<img src = "' + pics[i] + '"class = "thumbSize"  >';              
             }
             
-        }
+        
 
         function changeImg(event){
             
