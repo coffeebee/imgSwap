@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style type ="text/css">
         .mainSize{
-            width:624px;
+            width:612px;
             border:  2px solid white;
         }  
         .thumbSize {
@@ -27,40 +27,40 @@
 <body>
     <h1>My 1st Javascript Photo Gallery</h1>
     
-    
-    <img src = "cat.jpg" class = "mainSize" alt = "cat" id = "mainImg">
-        
-    <div id = "thumbs" onclick = "changeImg(event)">
-        
-    </div>
-    
+    <div id = "mainImg" ></div>        
+    <div id = "thumbs" ></div>   
     
     <script>
-
         var pics = new Array();
         pics[0] = 'cat.jpg';
         pics[1] = 'dog.jpg';
         pics[2] = 'panda.jpg';
-        pics[3] = 'piggy.jpg';        
-        
-            for(let i = 0; i<pics.length; i++){
-                //document.write("<img src = " + pics[i] + "class = 'thumbSize'>");  
-                document.getElementById('thumbs').innerHTML += '<img src = "' + pics[i] + '"class = "thumbSize"  >';              
-            }
-            
-        
+        pics[3] = 'piggy.jpg';       
 
-        function changeImg(event){
-            
-
-            var target = event.target;
-
-            if(target.tagName == "IMG"){
-                document.getElementById("mainImg").src = target.getAttribute("src");
-            }
+        var picsDesc = new Array();
+        picsDesc[0] = 'Cat';
+        picsDesc[1] = 'Dog';
+        picsDesc[2] = 'Panda';
+        picsDesc[3] = 'Piggy';     
+        //display stuff
+        document.getElementById('mainImg').innerHTML = `<img src = '${pics[0]}' class = "mainSize" alt = '${picsDesc[0]}'>`;
+        for(let i = 0; i<pics.length; i++){
+            document.getElementById('thumbs').innerHTML += `<img src = '${pics[i]}' class = "thumbSize" alt = '${picsDesc[i]}' onclick = "change(${i})"/>`;              
         }
+        //change picture functions
+        var rotate = setInterval(changeOn3, 3000);
         
-    </script> 
+        function changeOn3(){
+            meh = Math.ceil(Math.random() * 3);
+            change(meh);   
+        }
+
+        function change(index){                 
+            document.getElementById('mainImg').innerHTML = `<img src = '${pics[index]}' class = "mainSize" alt = '${picsDesc[index]}'>`;           
+        }       
+
+     </script>
 
 </body>
 </html>
+
